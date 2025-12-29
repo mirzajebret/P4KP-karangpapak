@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P4KP - Paguyuban Pengelola Pariwisata Pantai Karang Papak</title>
+    <meta name="description"
+        content="Website Resmi Paguyuban Pengelola Pariwisata Pantai Karang Papak (P4KP). Mewujudkan Ekowisata Lestari dan Mensejahterakan Masyarakat.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ocean-dark': '#0f4c75',
+                        'ocean-blue': '#3282b8',
+                        'sand-light': '#bbe1fa',
+                        'sand-gold': '#f0a500',
+                        'eco-green': '#28a745'
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Open Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for Scrollbar & Animations */
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(15, 76, 117, 0.7), rgba(15, 76, 117, 0.6)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glassmorphism for cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body class="text-gray-700 bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md" id="navbar">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <img src="/STAMP-P4KP.png" alt="Logo" class="w-14 h-14">
+                    <div>
+                        <span class="text-xl font-bold text-ocean-dark block leading-none">P4KP</span>
+                        <span class="w-2/3 text-xs font-semibold text-ocean-dark block leading-none">Paguyuban Pengelola
+                            Pariwisata Pantai Karang Papak </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-gray-700 hover:text-ocean-blue font-medium transition">Beranda</a>
+                    <a href="#about" class="text-gray-700 hover:text-ocean-blue font-medium transition">Tentang Kami</a>
+                    <a href="#visi-misi" class="text-gray-700 hover:text-ocean-blue font-medium transition">Visi &
+                        Misi</a>
+                    <a href="#struktur" class="text-gray-700 hover:text-ocean-blue font-medium transition">Struktur</a>
+                    <a href="#gallery" class="text-gray-700 hover:text-ocean-blue font-medium transition">Galeri</a>
+                    <a href="#contact"
+                        class="px-5 py-2 bg-ocean-blue text-white rounded-full hover:bg-ocean-dark transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Hubungi
+                        Kami</a>
+                </div>
+
+                <!-- Mobile Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-ocean-dark focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Panel -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4  border-t border-gray-100">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-ocean-blue">Beranda</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-ocean-blue">Tentang Kami</a>
+                <a href="#visi-misi" class="block py-2 text-gray-700 hover:text-ocean-blue">Visi & Misi</a>
+                <a href="#struktur" class="block py-2 text-gray-700 hover:text-ocean-blue">Struktur</a>
+                <a href="#gallery" class="block py-2 text-gray-700 hover:text-ocean-blue">Galeri</a>
+                <a href="#contact" class="block py-2 text-ocean-blue font-semibold">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center relative">
+        <div class="container mx-auto px-6 text-center text-white relative z-10 pt-16">
+            <h2 class="text-lg md:text-xl font-medium tracking-widest mb-2 uppercase text-sand-gold fade-in-up">Selamat
+                Datang di Website Resmi</h2>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight fade-in-up" style="transition-delay: 100ms;">
+                Paguyuban Pengelola Pariwisata <br>
+                <span class="text-sand-light">Pantai Karang Papak</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto font-light fade-in-up" style="transition-delay: 200ms;">
+                Wadah pemersatu pelaku usaha pariwisata untuk mewujudkan ekowisata lestari dan mensejahterakan
+                masyarakat lokal.
+            </p>
+            <div class="flex justify-center gap-4 fade-in-up" style="transition-delay: 300ms;">
+                <a href="#about"
+                    class="px-8 py-3 bg-white text-ocean-blue font-semibold rounded-full hover:bg-ocean-blue hover:text-white transition">Pelajari
+                    Lebih Lanjut</a>
+                <a href="#contact"
+                    class="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-ocean-dark transition">Bergabung</a>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 fade-in-up">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Pantai Karang Papak" class="rounded-lg shadow-2xl z-10 relative">
+                        <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-sand-gold/20 rounded-full -z-0"></div>
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-ocean-blue/20 rounded-full -z-0"></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 fade-in-up" style="transition-delay: 200ms;">
+                    <h3 class="text-ocean-blue font-semibold uppercase tracking-wide mb-2">Tentang Kami</h3>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Membangun Pariwisata yang <span
+                            class="text-ocean-dark">Berkelanjutan</span></h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Paguyuban Pengelola Pariwisata Pantai Karang Papak (P4KP) adalah wadah bagi para pelaku usaha di
+                        bidang kepariwisataan Pantai Karang Papak, yang berazaskan Pancasila dan berpedoman pada Pasal
+                        33 UUD 1945.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Didirikan pada <strong>12 Oktober 2025</strong>, P4KP bertekad untuk mewujudkan ekowisata
+                        lestari dan mensejahterakan masyarakat lokal Cikelet, Kabupaten Garut.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-ocean-blue">
+                            <i class="fas fa-hand-holding-heart text-ocean-blue text-2xl mb-2"></i>
+                            <h4 class="font-bold text-gray-800">Gotong Royong</h4>
+                            <p class="text-sm text-gray-500">Nilai inti kebersamaan.</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-eco-green">
+                            <i class="fas fa-leaf text-eco-green text-2xl mb-2"></i>
+                            <h4 class="font-bold text-gray-800">Lestari</h4>
+                            <p class="text-sm text-gray-500">Menjaga lingkungan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Highlights -->
+    <section class="py-12 bg-ocean-dark text-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in-up">
+                    <i class="fas fa-users text-4xl text-sand-gold mb-3"></i>
+                    <h3 class="text-3xl font-bold">100+</h3>
+                    <p class="text-blue-200">Anggota Aktif</p>
+                </div>
+                <div class="fade-in-up" style="transition-delay: 100ms;">
+                    <i class="fas fa-calendar-check text-4xl text-sand-gold mb-3"></i>
+                    <h3 class="text-3xl font-bold">2025</h3>
+                    <p class="text-blue-200">Tahun Berdiri</p>
+                </div>
+                <div class="fade-in-up" style="transition-delay: 200ms;">
+                    <i class="fas fa-umbrella-beach text-4xl text-sand-gold mb-3"></i>
+                    <h3 class="text-3xl font-bold">7+</h3>
+                    <p class="text-blue-200">Program Kerja</p>
+                </div>
+                <div class="fade-in-up" style="transition-delay: 300ms;">
+                    <i class="fas fa-certificate text-4xl text-sand-gold mb-3"></i>
+                    <h3 class="text-3xl font-bold">Legal</h3>
+                    <p class="text-blue-200">Berbadan Hukum</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visi & Misi -->
+    <section id="visi-misi" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Visi & Misi</h2>
+                <div class="w-20 h-1 bg-sand-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Visi Card -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-ocean-blue fade-in-up hover:transform hover:-translate-y-2 transition duration-300">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-ocean-blue">
+                            <i class="fas fa-eye text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Visi Kami</h3>
+                    </div>
+                    <blockquote
+                        class="text-xl font-medium text-gray-700 italic border-l-4 border-gray-200 pl-4 py-2 mb-4">
+                        "Terwujudnya Ekowisata Lestari, Masyarakat dan Pelaku Pariwisata Sejahtera"
+                    </blockquote>
+                    <p class="text-gray-500 text-sm mt-4">P4KP berkomitmen menjadikan Pantai Karang Papak sebagai
+                        destinasi unggulan yang menyeimbangkan ekonomi dan ekologi.</p>
+                </div>
+
+                <!-- Misi Card -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-sand-gold fade-in-up hover:transform hover:-translate-y-2 transition duration-300"
+                    style="transition-delay: 200ms;">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center text-sand-gold">
+                            <i class="fas fa-bullseye text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800">Misi Kami</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <span class="text-gray-700">Meningkatkan kesejahteraan masyarakat melalui pariwisata.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <span class="text-gray-700">Menjaga kelestarian lingkungan pantai & ekosistem.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <span class="text-gray-700">Menciptakan sapta pesona wisata (Aman, Bersih, Indah).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-green-500 mt-1"></i>
+                            <span class="text-gray-700">Pemberdayaan ekonomi lokal dan penciptaan lapangan kerja.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Struktur Organisasi (Key People) -->
+    <section id="struktur" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h3 class="text-ocean-blue font-semibold uppercase tracking-wide mb-2">Kepemimpinan</h3>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Struktur Organisasi</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
+                <!-- Ketua Umum -->
+                <div class="group fade-in-up">
+                    <div
+                        class="w-32 h-32 mx-auto bg-gray-200 rounded-full overflow-hidden mb-4 border-4 border-ocean-blue shadow-lg">
+                        <img src="https://ui-avatars.com/api/?name=Rudy+Harianto&background=0D8ABC&color=fff&size=128"
+                            alt="Ketua Umum" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800">Drs. Rudy Harianto, M.Si</h3>
+                    <p class="text-ocean-blue font-medium">Ketua Umum</p>
+                </div>
+
+                <!-- Sekretaris 1 -->
+                <div class="group fade-in-up" style="transition-delay: 100ms;">
+                    <div
+                        class="w-28 h-28 mx-auto bg-gray-200 rounded-full overflow-hidden mb-4 border-4 border-gray-100 shadow-md">
+                        <img src="https://ui-avatars.com/api/?name=Ridwan&background=random&color=fff&size=128"
+                            alt="Sekretaris" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800">Ridwan, S.Pd</h3>
+                    <p class="text-gray-500 font-medium">Sekretaris 1</p>
+                </div>
+
+                <!-- Bendahara 1 -->
+                <div class="group fade-in-up" style="transition-delay: 200ms;">
+                    <div
+                        class="w-28 h-28 mx-auto bg-gray-200 rounded-full overflow-hidden mb-4 border-4 border-gray-100 shadow-md">
+                        <img src="https://ui-avatars.com/api/?name=Dimas+Cakra&background=random&color=fff&size=128"
+                            alt="Bendahara" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800">Dimas Cakra Andita</h3>
+                    <p class="text-gray-500 font-medium">Bendahara 1</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center fade-in-up">
+                <p class="text-gray-600 mb-4">Didukung oleh tim yang solid termasuk Penasihat, Pembina, dan berbagai
+                    Bidang Khusus.</p>
+                <button class="text-ocean-blue font-semibold hover:underline">Lihat Struktur Lengkap <i
+                        class="fas fa-arrow-right ml-1"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program & Activities -->
+    <section class="py-20 bg-blue-50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2 fade-in-up">
+                    <h3 class="text-ocean-blue font-semibold uppercase tracking-wide mb-2">Aktivitas Kami</h3>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Program Kerja & Kegiatan</h2>
+                    <p class="text-gray-600 mb-6">Kami aktif bergerak dalam berbagai bidang untuk memajukan pariwisata
+                        lokal.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center text-eco-green shadow-sm">
+                                <i class="fas fa-broom"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Kebersihan & Konservasi</h4>
+                                <p class="text-sm text-gray-500">Gotong royong rutin membersihkan area pantai.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center text-ocean-blue shadow-sm">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Pelatihan SDM</h4>
+                                <p class="text-sm text-gray-500">Peningkatan kapasitas guide dan pengelola homestay.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div
+                                class="flex-shrink-0 w-10 h-10 bg-white rounded-full flex items-center justify-center text-sand-gold shadow-sm">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Pemberdayaan UMKM</h4>
+                                <p class="text-sm text-gray-500">Mewadahi kerjasama usaha antar anggota.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 grid grid-cols-2 gap-4 fade-in-up" style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        class="rounded-lg shadow-md w-full h-48 object-cover transform translate-y-4">
+                    <img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        class="rounded-lg shadow-md w-full h-48 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-3xl font-bold text-gray-800">Galeri Kegiatan</h2>
+                <p class="text-gray-500 mt-2">Dokumentasi keindahan dan aktivitas di Pantai Karang Papak</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold">Keindahan Pantai</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer fade-in-up"
+                    style="transition-delay: 100ms;">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold">Rapat Anggota</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg shadow-lg cursor-pointer fade-in-up"
+                    style="transition-delay: 200ms;">
+                    <img src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                        class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div
+                        class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                        <span class="text-white font-semibold">Kegiatan Sosial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Legal (Based on PDF) -->
+    <section class="py-12 bg-gray-100 border-t border-gray-200">
+        <div class="container mx-auto px-6 text-center">
+            <h4 class="text-gray-500 uppercase tracking-widest text-sm mb-6">Legalitas Terjamin</h4>
+            <div
+                class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition duration-500">
+                <!-- Mockup Icons for Legal Docs -->
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-file-contract text-4xl mb-2 text-ocean-blue"></i>
+                    <span class="text-xs font-bold">AKTA NOTARIS</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-stamp text-4xl mb-2 text-ocean-blue"></i>
+                    <span class="text-xs font-bold">SK KEMENKUMHAM</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fas fa-id-card text-4xl mb-2 text-ocean-blue"></i>
+                    <span class="text-xs font-bold">NPWP & NIB</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Contact -->
+    <section id="contact" class="py-20 bg-ocean-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -translate-y-1/2 translate-x-1/2">
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="fade-in-up">
+                    <h2 class="text-3xl font-bold mb-4">Bergabung Bersama Kami</h2>
+                    <p class="text-blue-100 mb-8">
+                        Mari bersinergi membangun pariwisata Pantai Karang Papak yang lebih maju, profesional, dan
+                        sejahtera.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white text-ocean-dark flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span>Pantai Karang Papak, Cikelet, Kabupaten Garut</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white text-ocean-dark flex items-center justify-center">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <span>0812 2445 6833</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white text-ocean-dark flex items-center justify-center">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>p4kp.pantaikarangpapak@yahoo.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl text-gray-800 fade-in-up" style="transition-delay: 200ms;">
+                    <form onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah terkirim (Demo).');">
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold mb-2 text-ocean-dark">Nama Lengkap</label>
+                            <input type="text"
+                                class="w-full px-4 py-2 rounded-lg bg-white/90 border-0 focus:ring-2 focus:ring-sand-gold outline-none"
+                                placeholder="Nama Anda">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold mb-2 text-ocean-dark">Email / WhatsApp</label>
+                            <input type="text"
+                                class="w-full px-4 py-2 rounded-lg bg-white/90 border-0 focus:ring-2 focus:ring-sand-gold outline-none"
+                                placeholder="Kontak Anda">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold mb-2 text-ocean-dark">Pesan</label>
+                            <textarea
+                                class="w-full px-4 py-2 rounded-lg bg-white/90 border-0 focus:ring-2 focus:ring-sand-gold outline-none h-24"
+                                placeholder="Tulis pesan Anda..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-sand-gold text-white font-bold py-3 rounded-lg hover:bg-yellow-600 transition shadow-lg">Kirim
+                            Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 P4KP (Paguyuban Pengelola Pariwisata Pantai Karang Papak). All Rights Reserved.</p>
+            <div class="flex justify-center gap-4 mt-4">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Navbar Transition on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('py-3', 'py-2');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('py-2', 'py-3');
+            }
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
